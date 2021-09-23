@@ -62,6 +62,8 @@ const findTimeSlot = (searchTime, availability) => {
 const searchMatchingClinic = (data, searchCriteria) => {
   if (!searchCriteria) {
     return removeDuplicates(data);
+  } else if (!data.length) {
+    return [];
   }
   // TODO: Place 'availability' at the last of search Criteria to reduce comparisons
   
@@ -71,7 +73,7 @@ const searchMatchingClinic = (data, searchCriteria) => {
     const stateCode = countriesData.states.find((obj) =>
       [obj.name.toLowerCase(), obj.code.toLowerCase()].includes(searchCriteria.stateName.toLowerCase())
     );
-    searchCriteria.stateCode = stateCode.code && stateCode.code;
+    searchCriteria.stateCode = stateCode && stateCode.code;
 
     delete searchCriteria.stateName;
   }

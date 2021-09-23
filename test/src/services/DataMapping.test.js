@@ -1,5 +1,4 @@
-const chai = require("chai");
-chai.should();
+require("chai");
 const vetClinic = require("../../__mocks__/vet-clinic.json");
 const { mappingService } = require("../../../src/services/DataMapping");
 

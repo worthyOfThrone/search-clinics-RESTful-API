@@ -1,5 +1,4 @@
-const chai = require("chai");
-chai.should();
+require("chai");
 const { removeDuplicates } = require("../../src/utils");
 
 describe("Utils test suit", () => {

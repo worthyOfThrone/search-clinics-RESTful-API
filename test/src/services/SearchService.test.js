@@ -1,5 +1,4 @@
 const chai = require("chai");
-chai.should();
 const expect = chai.expect;
 const sinon = require("sinon");
 const dentalClinic = require("../../__mocks__/dental-clinic.json");
@@ -24,7 +23,24 @@ describe("SearchService test suits", () => {
     stub.restore();
   });
 
-  // TODO: get ALl list of data
+  it("Should return the list of all clinics ", (done) => {
+    searchClinics()
+      .then((response) => {
+        response.length.should.eql(13);
+        response[0].should.include.keys([
+          "name",
+          "stateCode",
+          "stateName",
+          "availability",
+        ]);
+
+        done();
+      })
+      .catch((e) => {
+        console.error(e);
+        done(e);
+      });
+  });
 
   it("Search 'City Vet Clinic' clinic ", (done) => {
     const name = "City Vet Clinic";
@@ -40,6 +56,23 @@ describe("SearchService test suits", () => {
 
         // ensuring all data is coming as per props provided
         expect(response[0]).to.have.property("name").eql(name);
+        done();
+      })
+      .catch((e) => {
+        console.error(e);
+        done(e);
+      });
+  });
+
+  it("Should not return any clinics ", (done) => {
+    // wrong name provided
+    const name = "City Vet Clinicxxx";
+    searchClinics({ name })
+      .then((response) => {
+        // blank array must be recieved
+        expect(response).to.exist;
+        expect(response).to.be.an("array");
+        expect(response).to.have.length(0);
         done();
       })
       .catch((e) => {
@@ -149,5 +182,23 @@ describe("SearchService test suits", () => {
       from: "12:00",
       to: "13:00",
     });
+  });
+
+  it("Should not return any clinics if data is not provided to search logic", (done) => {
+    // wrong name provided
+    const name = "City Vet Clinic";
+    stub.returns([]);
+    searchClinics({ name })
+      .then((response) => {
+        // blank array must be recieved
+        expect(response).to.exist;
+        expect(response).to.be.an("array");
+        expect(response).to.have.length(0);
+        done();
+      })
+      .catch((e) => {
+        console.error(e);
+        done(e);
+      });
   });
 });

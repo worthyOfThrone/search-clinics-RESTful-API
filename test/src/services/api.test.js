@@ -30,8 +30,6 @@ describe("SearchService test suits", () => {
           "opening",
         ]);
 
-        // // ensuring all data is coming as per props provided
-        // expect(response[0]).to.have.property("name").eql(name);
         done();
       })
       .catch((e) => {

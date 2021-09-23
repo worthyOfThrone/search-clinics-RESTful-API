@@ -5,10 +5,11 @@ const axios = require("axios");
 // @description ONLY A REFERENCE API: get state code of all states of the United States 
 // @access Public
 router.get("/getUSStateCode", (req, res) => {
+    const countriesAPI = process.env.COUNTRIES_API;
     // using below API we can get stateCode of all the states
     // I have stored response of this API in JSON. because it will be needed everytime
     // if in future, we want to support states from any other country, we can get those stateCodes using this API
-    axios.get("https://api.printful.com/countries")
+    axios.get(countriesAPI)
         .then((countriesData) => {
             const unitedStateData = countriesData.data.result.find(obj => obj.name === "United States");
             res.send(unitedStateData);

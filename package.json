@@ -8,11 +8,14 @@
     "test": "nyc mocha \"./test/**/*.test.js\" --exit",
     "lint": "eslint \"{src,test}/**/*.js\" --fix"
   },
+  "engines": {
+    "node": "^12.0.0||^10.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/worthyOfThrone/search-clinics-RESTful-API.git"
   },
-  "author": "Arshiya Ansari",
+  "author": "arshiya.ans777@gmail.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/worthyOfThrone/search-clinics-RESTful-API/issues"
@@ -20,6 +23,7 @@
   "homepage": "https://github.com/worthyOfThrone/search-clinics-RESTful-API#readme",
   "devDependencies": {
     "chai": "^4.3.4",
+    "dotenv": "^10.0.0",
     "mocha": "^9.1.1",
     "nodemon": "^2.0.12",
     "nyc": "^15.1.0",

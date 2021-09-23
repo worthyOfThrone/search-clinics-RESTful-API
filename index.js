@@ -1,7 +1,8 @@
 "use strict";
 const express = require("express");
 const app = express();
-const port = 80;
+require("dotenv").config();
+const port = process.env.PORT || 80;
 
 const searchRoute = require("./src/routes/search");
 const generalRoutes = require("./src/routes/generalRoutes");

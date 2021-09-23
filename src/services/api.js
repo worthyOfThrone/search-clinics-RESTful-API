@@ -2,13 +2,13 @@ const axios = require("axios");
 
 const fetchClinics = function () {
   let responseData;
-  const domain = "https://storage.googleapis.com";
+  const domain = process.env.CLINIC_API;
   return axios
-    .get(`${domain}/scratchpay-code-challenge/dental-clinics.json`)
+    .get(`${domain}/dental-clinics.json`)
     .then((dentalClinicResponse) => {
       responseData = dentalClinicResponse.data;
       return axios
-        .get(`${domain}/scratchpay-code-challenge/vet-clinics.json`)
+        .get(`${domain}/vet-clinics.json`)
         .then((vetClinicResponse) => {
           return [...responseData, ...vetClinicResponse.data];
         });

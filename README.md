@@ -11,6 +11,14 @@ Install the dependencies and start the server.
 $ npm install
 $ npm start
 ```
+To test the application using unti testing, and to know the test case coverage use the below command
+```sh
+$ npm run test
+```
+To list out and fix the eslint issues, use the below command
+```sh
+$ npm run lint
+```
 
 Extract the postman collection attached to the email, and try out the /search routes with different search criteria by yourself.
 
@@ -54,6 +62,11 @@ There are number of variations in request body to get desired results
     -  `{"stateName": "CA", "availability": {"from": "12:00","to": "14:30"}}` search all dental and vet clinics located in California which can be available in the time slot sent through availability. 
 
 Below are a few curl examples to request the API and get their responses. 
+
+###Opportunities to enhance features of this application
+- Update `/api/getUSStateCode` to return all the states of all the countries. and can use to search clinics from all around the world that can be available on `scratchpay-code-challenge` google storage in future (if required).
+- add pagination to the API.
+- setup npm repository to publish this as an NPM package, and dockerize CI pipeline to achieve this task.
 
 ### Get a list of all Dental and Vet Clinics
 use the below CURL example to get a list of all the dental and vet clinics.

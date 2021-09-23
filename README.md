@@ -15,7 +15,7 @@ To test the application using unti testing, and to know the test case coverage u
 ```sh
 $ npm run test
 ```
-To list out and/or fix the lint issue, use the below command
+To list out and fix the eslint issues, use the below command
 ```sh
 $ npm run lint
 ```

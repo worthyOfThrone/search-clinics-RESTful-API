@@ -11,6 +11,14 @@ Install the dependencies and start the server.
 $ npm install
 $ npm start
 ```
+To test the application using unti testing, and to know the test case coverage use the below command
+```sh
+$ npm run test
+```
+To list out and/or fix the lint issue, use the below command
+```sh
+$ npm run lint
+```
 
 Extract the postman collection attached to the email, and try out the /search routes with different search criteria by yourself.
 

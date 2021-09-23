@@ -4,7 +4,7 @@ const axios = require("axios");
 // @route GET /getUSStateCode
 // @description ONLY A REFERENCE API: get state code of all states of the United States 
 // @access Public
-router.get("/api/get-US-state-code", (req, res) => {
+router.get("/api/getUSStateCode", (req, res) => {
     const countriesAPI = process.env.COUNTRIES_API;
     // using below API we can get stateCode of all the states
     // I have stored response of this API in JSON. because it will be needed everytime
